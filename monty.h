@@ -1,5 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -15,9 +16,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -30,16 +31,19 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t *header;
+/*extern stack_t *header;*/
 
-void _open(char *s);
+void _open(char *s, stack_t *h);
 char **tok(char m[], int a, char *delim);
 void _push(stack_t **stack, unsigned int a);
 void _Pall(stack_t **stack, unsigned int a);
-void func(char**e, char m[], int a);
+void func(char **e, int a, stack_t **h);
 int _atoi(char *w);
+char *_strdup(const char *s);
+void _free(char *s, char **e, stack_t *h);
+
 #endif
