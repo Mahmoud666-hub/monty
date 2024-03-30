@@ -107,14 +107,14 @@ void func(char **e, int a, stack_t **h)
 			u = strtok(NULL, " ");
 			if (u == NULL)
 			{
-				_free(NULL, e, NULL);
+				_free(NULL, e, (*h));
 				fprintf(stderr, "L%d: usage: push integer\n", (i + 1));
 				exit(EXIT_FAILURE);
 			}
 			g = _atoi(u);
 			if (g == -1241)
 			{
-				_free(NULL, e, NULL);
+				_free(NULL, e, (*h));
 				fprintf(stderr, "L%d: usage: push integer\n", (i + 1));
 				exit(EXIT_FAILURE);
 			}
